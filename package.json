@@ -5,8 +5,8 @@
   "homepage": "./public",
   "main": "public/electron.js",
   "scripts": {
-    "electron-packager": "electron-packager .",
-    "electron-pack": "npm run build --em.main=publix/electron.js",
+    "electron-packager": "electron-packager . --out=dist",
+    "electron-pack": "npm build --em.main=publix/electron.js",
     "preelectron-pack": "npm run build",
     "electron-dev": "concurrently \"cd frontend && npm start\" \"wait-on http://localhost:8080 && electron .\"",
     "start": "node ./server/index.js",
