@@ -7,6 +7,8 @@ package-lock.json
 
 # react
 public/bundle.js
+frontend/build
+frontend/dist
 
 # cypress
 server/cypress/videos
