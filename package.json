@@ -5,7 +5,8 @@
   "homepage": "./public",
   "main": "public/electron.js",
   "scripts": {
-    "electron-packager": "electron-packager . --out=dist",
+    "react-build": "react-scripts build",
+    "electron-packager": "electron-packager ./public --out=dist --overwrite",
     "electron-pack": "npm build --em.main=publix/electron.js",
     "preelectron-pack": "npm run build",
     "electron-dev": "concurrently \"cd frontend && npm start\" \"wait-on http://localhost:8080 && electron .\"",
@@ -49,7 +50,7 @@
   "devDependencies": {
     "concurrently": "^5.3.0",
     "cypress-dotenv": "^1.2.2",
-    "eslint": "^7.10.0",
+    "eslint": "^6.6.0",
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
     "nodemon": "^2.0.4",
@@ -68,6 +69,7 @@
     "express-jwt": "^6.0.0",
     "immutability-helper": "^3.1.1",
     "mysql": "^2.18.1",
+    "react-scripts": "^3.4.3",
     "react-uuid": "^1.0.2",
     "rootpath": "^0.1.2",
     "uuid": "^8.3.0",
