@@ -137,7 +137,7 @@ export default function PrimarySearchAppBar({
       {/* Mobile Github icon */}
       <MenuItem
         onClick={() => {
-          open("https://github.com/callbacc/Artistify", "_blank");
+          //open("https://github.com/callbacc/Artistify", "_blank");
         }}
       >
         <IconButton color="inherit">
@@ -152,7 +152,7 @@ export default function PrimarySearchAppBar({
       {/* Discord icon mobile onClick={handleProfileMenuOpen}*/}
       <MenuItem
         onClick={() => {
-          open("https://discord.gg/b2gEwT8", "_blank");
+          //open("https://discord.gg/b2gEwT8", "_blank");
         }}
       >
         <IconButton target="_blank">
