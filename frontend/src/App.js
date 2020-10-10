@@ -41,7 +41,7 @@ const App = () => {
       }
 
       const storedQueue = localStorage.getItem("queue");
-      let parsedQueue = queryString.parse(location.search);
+      let parsedQueue = queryString.parse(window.location.search);
 
       if (parsedQueue.queue && parsedQueue.queue.length > 0) {
         let linkedQueue = await getQueueFromIds(queryString.stringify(parsedQueue));
@@ -92,9 +92,9 @@ const App = () => {
   useEffect(() => {
     if (queue && queue.length > 0) {
       localStorage.setItem("queue", JSON.stringify(queue));
-      let parsed = queryString.parse(location.search);
+      let parsed = queryString.parse(window.location.search);
       parsed.queue = queue.map((song) => song.id);
-      history.pushState(parsed, "queue", "?" + queryString.stringify(parsed));
+      window.history.pushState(parsed, "queue", "?" + queryString.stringify(parsed));
     }
   }, [queue]);
 
