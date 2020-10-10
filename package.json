@@ -2,14 +2,18 @@
   "name": "artistify-server",
   "version": "0.5.0",
   "description": "serve artistify-frontend to clients, and provide video search functionality from youtube data api",
-  "homepage": "https://github.com/callbacc/Artistify",
-  "main": "index.js",
+  "homepage": "./public",
+  "main": "public/electron.js",
   "scripts": {
+    "electron-packager": "electron-packager .",
+    "electron-pack": "npm run build --em.main=publix/electron.js",
+    "preelectron-pack": "npm run build",
+    "electron-dev": "concurrently \"cd frontend && npm start\" \"wait-on http://localhost:8080 && electron .\"",
     "start": "node ./server/index.js",
     "build": "cd frontend && npm run build",
     "test": "cd server &&  npm run test",
     "deploy": "npm run build && gcloud app deploy",
-    "dev": "concurrently --kill-others \"npm run dev:frontend\"  \"npm run dev:server\"",
+    "dev": "concurrently --kill-others \"npm i\" \"npm run dev:frontend\"  \"npm run dev:server\"",
     "dev:frontend": "cd frontend && npm i && npm start",
     "dev:server": "npm i && nodemon ./server/index.js",
     "lint": "cd server && npm run lint && cd ../frontend && npm run lint",
@@ -18,6 +22,15 @@
   },
   "engines": {
     "node": "12.x"
+  },
+  "build": {
+    "appId": "com.artistify.devs",
+    "files": [
+      "public/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
   },
   "repository": {
     "type": "git",
@@ -38,8 +51,8 @@
     "cypress-dotenv": "^1.2.2",
     "eslint": "^7.10.0",
     "husky": "^4.3.0",
-    "nodemon": "^2.0.4",
     "lint-staged": "^10.4.0",
+    "nodemon": "^2.0.4",
     "prettier": "^2.1.2"
   },
   "dependencies": {
@@ -47,6 +60,10 @@
     "axios": "^0.20.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "electron": "^10.1.3",
+    "electron-builder": "^22.8.1",
+    "electron-is-dev": "^1.2.0",
+    "electron-packager": "^15.1.0",
     "express": "^4.17.1",
     "express-jwt": "^6.0.0",
     "immutability-helper": "^3.1.1",
@@ -54,6 +71,7 @@
     "react-uuid": "^1.0.2",
     "rootpath": "^0.1.2",
     "uuid": "^8.3.0",
+    "wait-on": "^5.2.0",
     "yt-search": "^2.3.2"
   },
   "husky": {
