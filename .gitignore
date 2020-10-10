@@ -19,3 +19,7 @@ data
 
 # Logging
 logs/*
+
+#electron
+dist/
+artistify-server-win32-x64/
